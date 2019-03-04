@@ -82,5 +82,12 @@ app.use('/auth', auth)
 const shopifyStore = require('./routes/shopify');
 app.use('/store', shopifyStore);
 
+const eventOnline = require('./routes/eventOnline');
+app.use('/eventOnline', eventOnline);
+
+const eventPres = require('./routes/eventPres');
+app.use('/eventPres', eventPres);
+
+
 
 module.exports = app;
