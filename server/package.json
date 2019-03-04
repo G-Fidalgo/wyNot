@@ -19,9 +19,14 @@
     "mongoose": "^5.2.10",
     "morgan": "^1.9.0",
     "node-sass-middleware": "^0.11.0",
+<<<<<<< HEAD
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "serve-favicon": "^2.5.0"
+=======
+    "serve-favicon": "^2.5.0",
+    "request-promise": "^4.2.2"
+>>>>>>> 0ee331e2a2b19594c9debe3b71c3ffdce8d1da38
   },
   "devDependencies": {
     "nodemon": "^1.12.1"

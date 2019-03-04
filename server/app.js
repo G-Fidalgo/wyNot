@@ -78,5 +78,8 @@ app.use('/', index);
 const auth = require('./routes/auth')
 app.use('/auth', auth)
 
+const shopifyStore = require('./routes/shopify');
+app.use('/store', shopifyStore);
+
 
 module.exports = app;
