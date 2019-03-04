@@ -1,0 +1,81 @@
+const express = require('express');
+const router  = express.Router();
+const request = require('request-promise');
+const EventPres = require ('../models/EventPres');
+
+router.post('/new', isAdmin, function (req, res, next) {
+        EventPres.create({ 
+        name: req.body.name,
+        description: req.body.description,
+        schedule: req.body.schedule,
+        link: req.body.link,
+        address: req.body.address,
+        price: req.body.price
+    })
+    .then(function (event) {
+        res.json({eventcreated: true, data: event})
+    })
+    .catch(function (err) {
+        console.log(err);
+    });
+
+});
+
+router.get('/', function (req, res, next) {
+
+    EventPres.find()
+        .then(function (event) {
+            res.json(event)
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+  
+  });
+
+  router.put('/edit/:id', isAdmin, function (req, res, next) {
+    const id = req.params.id
+    EventPres.findByIdAndUpdate(id, {
+    name: req.body.name,
+    description: req.body.description,
+    schedule: req.body.schedule,
+    link: req.body.link,
+    address: req.body.address,
+    price: req.body.price
+})
+
+    .then(function (event) {
+    res.json({eventupdated: true, data: event})
+    })
+
+    .catch(function (err) {
+        console.log(err);
+    });
+  
+  });
+
+  router.delete('/delete/:id', isAdmin, function (req, res, next) {
+    const id = req.params.id
+    EventPres.findOneAndDelete(id)
+     .then(function (event) {
+      res.json({eventdeleted: true, data: event})
+    })
+    .catch(function (err) {
+        console.log(err);
+    });
+  
+  });
+
+
+
+function isAdmin(req, res, next){
+    if (req.isAuthenticated() && req.user.isAdmin){
+    return next();
+    } else{
+        res.redirect('/login')
+    }
+}
+
+
+
+module.exports = router;

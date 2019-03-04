@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
-const eventPreSchema = new Schema({
+const eventPresSchema = new Schema({
   name: String,
   description: String,
   schedule: Date,
@@ -10,5 +10,5 @@ const eventPreSchema = new Schema({
   price: Number,
 });
 
-const EventPre = mongoose.model('EventPre', eventPreSchema);
-module.exports = EventPre;
+const EventPres = mongoose.model('EventPres', eventPresSchema);
+module.exports = EventPres;
