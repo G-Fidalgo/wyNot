@@ -23,7 +23,7 @@ authRoutes.post('/signup', (req, res, next) => {
     return;
   }
 
-  if (validateEmail(username === false)){
+  if (validateEmail(username) === false){
     res.status(400).json({ message: 'Username format is not correct, it must be an email' });
     return;
   }
