@@ -4,6 +4,7 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
+  admin: {type: String, default: false}
 }, {
   timestamps: {
     createdAt: 'created_at',
