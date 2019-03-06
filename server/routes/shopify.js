@@ -17,8 +17,21 @@ router.get('/', function (req, res, next) {
 
   request(options)
       .then(function (parsedBody) {
-          console.log(parsedBody);
-          res.json(parsedBody);
+          console.log(parsedBody)
+
+          let parsedBodyMapped = parsedBody.products.map((product) => {
+              return {
+                type: product.product_type,
+                image: product.image.src,
+                price: +product.variants[0].price,
+                id: product.id
+              }
+          })
+          .filter((product) => {
+            return product.type !== "Box"
+          })
+
+          res.json(parsedBodyMapped);
       })
       .catch(function (err) {
           console.log(err);

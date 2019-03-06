@@ -3,7 +3,9 @@ const router  = express.Router();
 const request = require('request-promise');
 const EventPres = require ('../models/EventPres');
 
-router.post('/new', isAdmin, function (req, res, next) {
+router.post('/new', function (req, res, next) {
+
+        console.log(req.body)
         EventPres.create({ 
         name: req.body.name,
         description: req.body.description,
@@ -25,6 +27,7 @@ router.get('/', function (req, res, next) {
 
     EventPres.find()
         .then(function (event) {
+            console.log(event)
             res.json(event)
         })
         .catch(function (err) {
@@ -54,8 +57,9 @@ router.get('/', function (req, res, next) {
   
   });
 
-  router.delete('/delete/:id', isAdmin, function (req, res, next) {
+  router.post('/delete/:id', function (req, res, next) {
     const id = req.params.id
+    console.log(id)
     EventPres.findOneAndDelete(id)
      .then(function (event) {
       res.json({eventdeleted: true, data: event})
