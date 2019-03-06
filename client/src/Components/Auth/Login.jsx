@@ -22,9 +22,13 @@ class Login extends Component {
           password: password,
           error: false,
           redirect: true
+        }, () => {
+            console.log("Login", response)
+            this.props.manageLogin(response)
+          // this.props.getUser(response)
         });
 
-        this.props.getUser(response)
+       
       })
       .catch(error => {
         this.setState({
@@ -42,12 +46,10 @@ class Login extends Component {
   }
 
   render() {
-
     return (
     <div>
       {this.state.redirect === true ? <Redirect to ="/home"/> : ''}
-      <h2><Link to={"/singup"}> Sign Up if you don´t have an account </Link></h2>
-      <h3>Please, login to our site</h3>
+      <h3>Please, Log In to live the WyNot VIP experience</h3>
 
       <form onSubmit={this.handleFormSubmit}>
         <fieldset>
