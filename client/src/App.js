@@ -9,6 +9,9 @@ import Signup from "./Components/Auth/Signup";
 import Home from "./Components/Home/Home";
 import Navbar from "./Components/NavBar/NavBar";
 import AdminHome from "./Components/AdminHome/AdminHome";
+import EventPresBrand from './Components/Events/EventPres';
+import EventOnlineBrand from './Components/Events/EventOnline';
+import PackCreator from './Components/Packs/PackCreator';
 
 class App extends Component {
   constructor(props) {
@@ -76,6 +79,11 @@ class App extends Component {
             :<Home {...props} loggedInUser={this.state.loggedInUser} />}
           />
           <Route exact path='/adminHome' render={props => (<AdminHome {...props} loggedInUser={this.state.loggedInUser}/>)}/>
+
+          <Route exact path='/Events/EventPres' component={EventPresBrand}/>
+         <Route exact path='/Events/EventOnline' component={EventOnlineBrand}/>
+         <Route exact path='/Packs' component={PackCreator}/>
+
         </Switch>
       </div>
     );

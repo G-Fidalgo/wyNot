@@ -88,6 +88,9 @@ app.use('/eventOnline', eventOnline);
 const eventPres = require('./routes/eventPres');
 app.use('/eventPres', eventPres);
 
+const packs = require('./routes/pack');
+app.use('/packs', packs)
+
 
 
 module.exports = app;
