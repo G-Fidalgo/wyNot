@@ -8,6 +8,7 @@
             this.state = {
                 pack: [],
                 allItems: null
+
             };
             this.PackService = new PackService();
             this.get();
@@ -21,6 +22,14 @@
                 })
                 .catch((err) => console.log(err));
         };
+
+        handleCheck = (e) =>{
+
+            // console.log(e.className)
+            console.log(e.target)
+            
+            
+        }
     
         search = (mysearch) => {
             this.PackService.searchPack(mysearch)
@@ -39,14 +48,23 @@
             return (
                 <div>
                     <h1>HAY DATOS</h1>
-                    {this.state.allItems.map((item, index )=>{
+                        <form>
+                            <input onChange={this.handleCheck} defaultChecked={false}>
+                            {this.state.allItems.map((item, index )=>{
                          return (
-                            <div>
-                             <img src={item.image}/>
-                             <checkbox/>
+                            <div key={index}>
+                             <img src={item.image} alt='img'/>
+                             <p>{item.price}</p>
+                             
                             </div>
                         )
                     })}
+                            </input>
+
+                        </form>
+
+
+                    
                 </div>
             )
            }else{
