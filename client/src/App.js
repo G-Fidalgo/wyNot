@@ -13,6 +13,10 @@ import EventPresBrand from "./Components/Events/EventPres";
 import EventOnlineBrand from "./Components/Events/EventOnline";
 import PackCreator from "./Components/Packs/PackCreator.jsx";
 import UserList from "./Components/UserList/UserList";
+import UserPacks from "./Components/UserPacks/UserPacks";
+import EventPressUser from "./Components/EventPressUser/EventPressUser";
+import EventOnlineUser from "./Components/EventOnlineUser-Service.jsx/EventOnlineUser";
+import EventUser from "./Components/EventsUser/EventUser";
 
 class App extends Component {
   constructor(props) {
@@ -76,7 +80,7 @@ class App extends Component {
             )}
           />
 
-          <Route exact path='/userlist' component={UserList}  />
+          <Route exact path="/userlist" component={UserList} />
 
           <Route
             exact
@@ -88,6 +92,12 @@ class App extends Component {
 
           <Route exact path="/Events/EventPres" component={EventPresBrand} />
           <Route exact path="/Events/EventOnline" component={EventOnlineBrand} />
+
+          <Route exact path="/userevents" component={EventPressUser} />
+         
+          <Route exact path='/eventos' component={EventUser}/>
+          <Route exact path='/eventsonlineuser' component={EventOnlineUser} />
+          <Route exact path="/userpacks" component={UserPacks} />
           <Route exact path="/Packs" component={PackCreator} />
         </Switch>
       </div>

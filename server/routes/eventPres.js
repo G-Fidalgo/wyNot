@@ -70,6 +70,14 @@ router.get('/', function (req, res, next) {
   
   });
 
+  router.get('/eventlist', function(req, res, next){
+    EventPres.find()
+        .then(function(events){
+            res.json(events)
+        })
+        .catch(err => console.log(err))
+  })
+
 
 
 function isAdmin(req, res, next){
