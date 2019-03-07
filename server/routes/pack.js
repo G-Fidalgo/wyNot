@@ -4,9 +4,9 @@ const router = express.Router();
 const Pack = require("../models/Pack");
 const axios = require("axios");
 
-router.get("/", function(req, res, next) {
+// router.get("/", function(req, res, next) {
  
-});
+// });
 
 router.post("/new", isAdmin, function(req, res, next) {
   Pack.create({

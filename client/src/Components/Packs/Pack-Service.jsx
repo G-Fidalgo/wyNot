@@ -3,11 +3,11 @@ import axios from 'axios';
 class PackService {
   constructor() {
     let service = axios.create({
-        baseURL: `${process.env.REACT_APP_API_URL}/pack`, //SHOPIFY
+        baseURL: `${process.env.REACT_APP_API_URL}/pack`, 
       withCredentials: true
     });
     let serviceStore = axios.create({
-      baseURL: `${process.env.REACT_APP_API_URL}/store`, //SHOPIFY
+      baseURL: `${process.env.REACT_APP_API_URL}/store`,
     withCredentials: true
   });
     this.service = service;
