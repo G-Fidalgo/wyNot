@@ -60,6 +60,15 @@ router.get('/', function (req, res, next) {
   
   });
 
+  router.get('/eventOnlinelist', function(req, res, next){
+    EventOnline.find()
+        .then(function(events){
+            res.json(events)
+        })
+        .catch(err => console.log(err))
+  })
+
+
 
 
 function isAdmin(req, res, next){

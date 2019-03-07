@@ -50,6 +50,15 @@ router.delete("/delete/:id", isAdmin, function(req, res, next) {
     });
 });
 
+router.get('/userpacks', function(req, res, next){
+  Pack.find()
+  .then(function (packs){
+    res.json(packs)
+  }
+  )
+  .catch(err => console.log(err))
+})
+
 function isAdmin(req, res, next) {
   if (req.isAuthenticated() && req.user.isAdmin) {
     return next();
