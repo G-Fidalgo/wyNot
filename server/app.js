@@ -91,6 +91,8 @@ app.use('/eventPres', eventPres);
 const packs = require('./routes/pack');
 app.use('/packs', packs)
 
+const userList = require('./routes/userList')
+app.use('/userlist', userList)
 
 
 module.exports = app;

@@ -15,7 +15,6 @@ function validateEmail(username) {
 authRoutes.post('/signup', (req, res, next) => {
 
   const {username, password}=req.body
-  console.log(req.body)
 
 
   if (!username || !password) {

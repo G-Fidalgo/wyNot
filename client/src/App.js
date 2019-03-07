@@ -9,9 +9,10 @@ import Signup from "./Components/Auth/Signup";
 import Home from "./Components/Home/Home";
 import Navbar from "./Components/NavBar/NavBar";
 import AdminHome from "./Components/AdminHome/AdminHome";
-import EventPresBrand from './Components/Events/EventPres';
-import EventOnlineBrand from './Components/Events/EventOnline';
-import PackCreator from './Components/Packs/PackCreator';
+import EventPresBrand from "./Components/Events/EventPres";
+import EventOnlineBrand from "./Components/Events/EventOnline";
+import PackCreator from "./Components/Packs/PackCreator";
+import UserList from "./Components/UserList/UserList";
 
 class App extends Component {
   constructor(props) {
@@ -25,9 +26,7 @@ class App extends Component {
   };
 
   _manageLogOut = x => {
-    console.log("entro en logOut de App js");
     this.setState({ ...this.state, loggedInUser: null });
-    console.log(this.state);
   };
 
   fetchUser() {
@@ -51,11 +50,9 @@ class App extends Component {
     this.setState({
       loggedInUser: userObj
     });
-    console.log(userObj.username);
   };
 
   render() {
-    console.log(this.state.loggedInUser)
     return (
       <div className="App">
         <Navbar
@@ -74,16 +71,28 @@ class App extends Component {
           <Route
             exact
             path="/home"
-            render={props => this.state.loggedInUser && this.state.loggedInUser.admin ? 
-              <AdminHome {...props} loggedInUser={this.state.loggedInUser} />
-            :<Home {...props} loggedInUser={this.state.loggedInUser} />}
+            render={props => (
+              <Home {...props} loggedInUser={this.state.loggedInUser} />
+            )}
           />
-          <Route exact path='/adminHome' render={props => (<AdminHome {...props} loggedInUser={this.state.loggedInUser}/>)}/>
 
-          <Route exact path='/Events/EventPres' component={EventPresBrand}/>
-         <Route exact path='/Events/EventOnline' component={EventOnlineBrand}/>
-         <Route exact path='/Packs' component={PackCreator}/>
+          <Route exact path='/userlist' component={UserList}  />
 
+          <Route
+            exact
+            path="/adminHome"
+            render={props => (
+              <AdminHome {...props} loggedInUser={this.state.loggedInUser} />
+            )}
+          />
+
+          <Route exact path="/Events/EventPres" component={EventPresBrand} />
+          <Route
+            exact
+            path="/Events/EventOnline"
+            component={EventOnlineBrand}
+          />
+          <Route exact path="/Packs" component={PackCreator} />
         </Switch>
       </div>
     );

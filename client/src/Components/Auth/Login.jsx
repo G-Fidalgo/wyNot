@@ -23,7 +23,6 @@ class Login extends Component {
           error: false,
           redirect: true
         }, () => {
-            console.log("Login", response)
             this.props.manageLogin(response)
           // this.props.getUser(response)
         });
