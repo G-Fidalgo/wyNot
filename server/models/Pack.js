@@ -3,7 +3,7 @@ const Schema   = mongoose.Schema;
 
 const packSchema = new Schema({
   name: String,
-  image: String,
+  items: Array,
   price: Number,
 });
 

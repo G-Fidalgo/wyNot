@@ -4,20 +4,28 @@ const router = express.Router();
 const Pack = require("../models/Pack");
 const axios = require("axios");
 
-// router.get("/", function(req, res, next) {
+router.get("/", (req, res, next) =>{
+  Pack.find({})
+  .then((packs)=>{
+    res.json({packs})
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
  
-// });
+});
 
-router.post("/new", isAdmin, function(req, res, next) {
+router.post("/new", (req, res, next) => {
+
   Pack.create({
     name: req.body.name,
-    image: req.body.image,
-    price: req.body.price
+    price: req.body.price,
+    items: req.body.pack
   })
-    .then(function() {
-      res.json({ });
+    .then((pack) =>{
+      res.json({ pack});
     })
-    .catch(function(err) {
+    .catch((err) => {
       console.log(err);
     });
 });
@@ -39,10 +47,12 @@ router.put("/edit/:id", isAdmin, function(req, res, next) {
     });
 });
 
-router.delete("/delete/:id", isAdmin, function(req, res, next) {
-  const id = req.params.id;
-  Pack.findOneAndDelete(id)
-    .then(function() {
+router.post("/delete", function(req, res, next) {
+  console.log('hola')
+  const id = req.body.id;
+  Pack.findByIdAndRemove(id)
+    .then(() =>{
+      console.log('entro y soy Inés')
       res.json({ });
     })
     .catch(function(err) {

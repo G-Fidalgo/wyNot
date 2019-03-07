@@ -24,7 +24,8 @@ router.get('/', function (req, res, next) {
                 type: product.product_type,
                 image: product.image.src,
                 price: +product.variants[0].price,
-                id: product.id
+                id: product.id,
+                title: product.title
               }
           })
           .filter((product) => {
