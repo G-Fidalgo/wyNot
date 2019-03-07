@@ -9,7 +9,7 @@ class SearchBar extends Component {
 	filter = (e) => {
 		const newState = { ...this.state };
 		newState.search = e.target.value;
-		this.props.FilterName(newState.search);
+		this.props.pack.FilterName(newState.search); // filtre en packs
 		this.setState(newState);
 	};
 
@@ -23,3 +23,6 @@ class SearchBar extends Component {
 }
 
 export default SearchBar;
+
+
+//<SearchBar FilterName={this.searchPack} /> en la vista de todos los packs

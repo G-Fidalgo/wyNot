@@ -67,17 +67,17 @@ class EventPresBrand extends Component {
       <fieldset>
       <legend>Información del evento</legend>
       <label>Nombre del evento</label>
-      <input name='name' type='text' tabindex='1' onChange={e => this.handleChange(e)}/>
+      <input name='name' type='text' tabIndex='1' onChange={e => this.handleChange(e)}/>
       <label>Descripción</label>
-       <input name='description' type='text' tabindex='2' onChange={e => this.handleChange(e)}/>
+       <input name='description' type='text' tabIndex='2' onChange={e => this.handleChange(e)}/>
        <label>Horario</label>
-       <input name='schedule' type='text' tabindex='2'onChange={e => this.handleChange(e)}/>
+       <input name='schedule' type='text' tabIndex='2'onChange={e => this.handleChange(e)}/>
        <label>Link</label> 
-       <input name='link' type='text' tabindex='2'onChange={e => this.handleChange(e)}/>
+       <input name='link' type='text' tabIndex='2'onChange={e => this.handleChange(e)}/>
        <label>Dirección</label>
-       <input name='address' type='text' tabindex='2'onChange={e => this.handleChange(e)}/>
+       <input name='address' type='text' tabIndex='2'onChange={e => this.handleChange(e)}/>
        <label>Precio</label>
-       <input name='price' type='text' tabindex='2'onChange={e => this.handleChange(e)}/>
+       <input name='price' type='text' tabIndex='2'onChange={e => this.handleChange(e)}/>
       </fieldset>
       <input type="submit" value="Created event" />
       </form>

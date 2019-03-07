@@ -11,7 +11,7 @@ import Navbar from "./Components/NavBar/NavBar";
 import AdminHome from "./Components/AdminHome/AdminHome";
 import EventPresBrand from "./Components/Events/EventPres";
 import EventOnlineBrand from "./Components/Events/EventOnline";
-import PackCreator from "./Components/Packs/PackCreator";
+import PackCreator from "./Components/Packs/PackCreator.jsx";
 import UserList from "./Components/UserList/UserList";
 
 class App extends Component {
@@ -87,11 +87,7 @@ class App extends Component {
           />
 
           <Route exact path="/Events/EventPres" component={EventPresBrand} />
-          <Route
-            exact
-            path="/Events/EventOnline"
-            component={EventOnlineBrand}
-          />
+          <Route exact path="/Events/EventOnline" component={EventOnlineBrand} />
           <Route exact path="/Packs" component={PackCreator} />
         </Switch>
       </div>

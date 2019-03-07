@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import EventServiceO from './Event-Service-P';
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom';
+import EventListOnline from './EventListOnline';
+
 
 
 class EventOnlineBrand extends Component {
@@ -63,6 +65,8 @@ class EventOnlineBrand extends Component {
       </form>
 
       <h1>{this.state.error ? 'Error' : ''}</h1>
+
+      <EventListOnline/>
     </div>
     )
   }
