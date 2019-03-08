@@ -9,7 +9,7 @@ class Home extends Component {
   render() {
     if (this.state.loggedInUser.admin) {
       return (
-        <div>
+        <div className='app'>
           <div>
             <h1>
               Welcome {this.state.loggedInUser.username} to WyNot VIP Page
@@ -17,7 +17,7 @@ class Home extends Component {
             <h2> <Link to='/adminHome'>Go to the admin Home</Link></h2>
             <div>
               {" "}
-              <Link to="/packs">Packs</Link>
+              <Link to="/userPacks">Packs</Link>
             </div>
             <div>
               <Link to="/lab">Lab</Link>

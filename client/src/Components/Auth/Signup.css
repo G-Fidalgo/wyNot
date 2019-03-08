@@ -1,0 +1,15 @@
+@font-face {
+  src: url(../../fonts/Montserrat-Regular.ttf);
+  font-family: monserrat;
+
+}
+
+.container2 {
+  display: flex;
+  font-family: monserrat;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}

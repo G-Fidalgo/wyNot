@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
-
+import './NavBar.css'
+import logo from "./logo.png"
 import AuthService from "../Auth/Auth-Service";
 
 class Navbar extends Component {
@@ -29,24 +30,49 @@ class Navbar extends Component {
     if (this.state.loggedInUser) {
       return (
         <nav className="nav-style">
-          <Link to="/">
+          <div className='container'>
+          <a href='https://wynotwatches.com/' className='logo'>
+                <img src={logo} alt="WyNot logo" />
+              </a>
+
+              <div className='buttons margin'>
+              <div className='Logout'>
+              <Link to="/">
             <button onClick={this.handleLogout}>Logout</button>
           </Link>
+              </div>
+              
 
-          <p>
+          <p className='button1'>
             <Link to={"/home"}> Home</Link>
           </p>
-          <p>
+          <p className='button2'>
             <Link to={"/profile"}>Profile</Link>
           </p>
+              </div>
+
+
+              
+          </div>
         </nav>
       );
     } else {
       return (
         <div>
           <nav className="nav-style">
-            <div><Link to="/singup">Signup</Link></div>
-            <div><Link to="/">Login</Link></div>
+            <div className='container'>
+              <a href='https://wynotwatches.com/' className='logo'>
+                <img src={logo} alt="WyNot logo" />
+              </a>
+              <div className='buttons'>
+                <div className='button1'>
+                  <Link to="/singup">Signup</Link>
+                </div>
+                <div className='button2'>
+                  <Link to="/">Login</Link>
+                </div>
+              </div>
+            </div>
           </nav>
         </div>
       );

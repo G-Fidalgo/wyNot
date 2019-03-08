@@ -10,7 +10,7 @@ class UserPacksService {
   }
   
   userList = () => {
-			return this.service.get('/userpacks').then((data) => {
+			return this.service.get('/').then((data) => {
 				return data.data;
 			});
 		

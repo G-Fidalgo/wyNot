@@ -27,10 +27,22 @@ export default class UserPacks extends Component {
                 {this.state.allpacks.map((item, index )=>{
                      return (
                         <div key={index}>
-                          <p>{index + 1}</p>
-                          <p>{item.name}</p>
-                          <p>{item.price}</p>
-                          <img src={item.image} alt='WyNot watches'/>
+                          <p>Pack Number: {index + 1}</p>
+                          <p>Pack : {item.name}</p>
+                          <p>Pack Price: {item.price}</p>
+
+                          <p>----The pack is made of ----</p>
+
+                          {this.state.allpacks[index].items.map((item, index)=>{
+                            return (
+                            <div key={index}>
+                            <p>Item Number: {index + 1}</p>
+                            <p>Product name : {item.title}</p>
+                            <img src={item.image} alt='img'></img>
+                            </ div>
+                            )
+                          })}
+                          
                         </div>
                     )
                 })}

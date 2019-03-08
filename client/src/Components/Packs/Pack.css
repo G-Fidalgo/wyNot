@@ -1,0 +1,72 @@
+.image {
+  width: 100px;
+  height: 100px;
+}
+
+.Item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  align-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  max-height: 400px;
+  overflow-y: scroll;
+  justify-content: center;
+}
+
+.Item div {
+  margin-top: 40px;
+  width: 19%;
+}
+
+.green {
+  border: 1px solid green;
+  border-radius: 20px;
+}
+
+.pack-list li {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.pack {
+  border: 3px solid;
+  border-radius: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 40%;
+  background-color: grey;
+  color: white;
+}
+
+.Luis-Guerra {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.form-pack {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 30%;
+  align-items: center;
+  margin: 30px;
+}
+
+.form-pack-item {
+       display: flex;
+    justify-content: center;
+}

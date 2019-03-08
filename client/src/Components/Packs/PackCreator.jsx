@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PackService from "./Pack-Service.jsx";
 // import SearchBar from "../SearchBar/SearchBar"
-import ListPack from "./ListPack"
+import ListPack from "./ListPack";
+import "./Pack.css";
 
 class Pack extends Component {
   constructor(props) {
@@ -10,8 +11,8 @@ class Pack extends Component {
       pack: [],
       allItems: null,
       formDisplay: false,
-      name: '',
-      price: ''
+      name: "",
+      price: ""
     };
     this.PackService = new PackService();
     this.get();
@@ -33,16 +34,27 @@ class Pack extends Component {
   // }
 
   pushPack = item => {
-    let newState = { ...this.state };
-    newState.pack.push(item);
-    this.setState(newState);
+  
+    if (!this.state.pack.includes(item)) {
+      let newState = { ...this.state };
+      newState.pack.push(item);
+      this.setState(newState);
+    }
   };
 
-  showForm = () => {
-let newState = {...this.state};
-newState.formDisplay = true
-this.setState(newState)
+  deleteFromList = item => {
+    console.log('entra', item)
+    if (this.state.pack.includes(item)) {
+      let newPack = [ ...this.state.pack ];
+      newPack = newPack.filter(el => el.id != item.id )
+      this.setState({...this.state, pack:newPack});
+    }
   }
+  showForm = () => {
+    let newState = { ...this.state };
+    newState.formDisplay = true;
+    this.setState(newState);
+  };
 
   searchPack = mysearch => {
     this.PackService.searchPack(mysearch)
@@ -52,78 +64,88 @@ this.setState(newState)
       .catch(err => console.log(err));
   };
 
-
-handleFormSubmit = (event) => {
+  handleFormSubmit = event => {
     event.preventDefault();
     const name = this.state.name;
     const price = this.state.price;
-    const pack = this.state.pack
-    
-    this.PackService.packSumited(name, price, pack)
-    .then( response => {
-        this.setState({
-            name: "", 
-            price: "",
-            pack: [],
-            formDisplay: false
-        });
-    })
-    .catch( error => console.log(error) )
-  }
-  
-  handleChange = (event) => {  
-    const {name, value} = event.target;
-    console.log(event.target.value)
-    this.setState({...this.state, [name]: value});
-  }
+    const pack = this.state.pack;
 
- 
+    this.PackService.packSumited(name, price, pack)
+      .then(response => {
+        this.setState({
+          name: "",
+          price: "",
+          pack: [],
+          formDisplay: false
+        });
+      })
+      .catch(error => console.log(error));
+  };
+
+  handleChange = event => {
+    const { name, value } = event.target;
+    console.log(event.target.value);
+    this.setState({ ...this.state, [name]: value });
+  };
 
   render() {
-      const myForm = this.state.formDisplay ? (
-      <form onSubmit={e => this.handleFormSubmit(e)}>
-        <label>Nombre</label>
-          <input type="text" name="name"  onChange={e => this.handleChange(e)}/>
-          <label>Precio</label>
-          <input type="number" name="price"  onChange={e => this.handleChange(e)}/>
-          <input type="submit"/>
+    const myForm = this.state.formDisplay ? (
+      <form className= "form-pack"onSubmit={e => this.handleFormSubmit(e)}>
+        <label className="form-pack-item">Nombre</label>
+        <input type="text" name="name" onChange={e => this.handleChange(e)} />
+        <label className="form-pack-item">Precio</label>
+        <input
+          type="number"
+          name="price"
+          onChange={e => this.handleChange(e)}
+        />
+        <input type="submit" />
       </form>
-      ):(<div/>)
-      
-    
+    ) : (
+      <div />
+    );
+
     if (this.state.allItems) {
       return (
         <div>
-        {/* <SearchBar FilterName={this.searchPack}/> */}
-          <h1>HAY DATOS</h1>
-            <ListPack />
-          <div>
+          {/* <SearchBar FilterName={this.searchPack}/> */}
+          <h1>Hola Wynot, crea tus packs</h1>
+          <ListPack />
+          <div className="pack-list">
             {this.state.pack.map((itemSelected, index) => {
               return (
                 <li key={index}>
                   {" "}
                   {itemSelected.title} - {itemSelected.price}
+                  {" "}
+                  <i class="far fa-trash-alt" onClick={()=> this.deleteFromList(itemSelected)}></i>
                 </li>
               );
             })}
           </div>
 
-          <button onClick={()=> this.showForm()}>Crear Pack</button>
-          <div>
-          {myForm}
-          </div>
+          <button className="button" onClick={() => this.showForm()}>
+            Crear Pack
+          </button>
+          <div className="form-pack-item">{myForm}</div>
 
-          <form className="Item">
-            {/* <input onChange={this.handleCheck} defaultChecked={false}> */}
-            {this.state.allItems.map((item, index) => {
-              return (
-                <div key={index} onClick={() => this.pushPack(item)}>
-                  <img src={item.image} alt="img" />
-                  <p>{item.price}</p>
-                </div>
-              );
-            })}
-            {/* </input> */}
+          <form>
+            <div className="Item">
+              {/* <input onChange={this.handleCheck} defaultChecked={false}> */}
+              {this.state.allItems.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    onClick={() => this.pushPack(item)}
+                    className={this.state.pack.includes(item) ? "green" : ""}
+                  >
+                    <img className="image" src={item.image} alt="img" />
+                    <p>{item.price}.00 €</p>
+                  </div>
+                );
+              })}
+              {/* </input> */}
+            </div>
           </form>
         </div>
       );

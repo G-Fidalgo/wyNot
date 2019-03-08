@@ -23,10 +23,13 @@ export default class AdminHome extends Component {
               <Link to="/userlist">User List</Link>
             </div>
             <div>
-              <Link to="/createpack">Create a Pack</Link>
+              <Link to="/Packs">Create a Pack</Link>
             </div>
             <div>
-              <Link to="/createevent">Create Events</Link>
+              <Link to="/Events/EventPres">Create Presential Event</Link>
+            </div>
+            <div>
+              <Link to="/Events/EventOnline">Create Online Event</Link>
             </div>
           </div>
         </div>

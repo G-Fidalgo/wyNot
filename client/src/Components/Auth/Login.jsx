@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import AuthService from './Auth-Service';
 import { Redirect, Link } from 'react-router-dom'
 
+import './Login.css'
+
 
 class Login extends Component {
   constructor(props) {
@@ -46,13 +48,13 @@ class Login extends Component {
 
   render() {
     return (
-    <div>
+    <div className='container1'>
       {this.state.redirect === true ? <Redirect to ="/home"/> : ''}
       <h3>Please, Log In to live the WyNot VIP experience</h3>
 
       <form onSubmit={this.handleFormSubmit}>
         <fieldset>
-          <label>Username:</label>
+          <label>Email:</label>
           <input type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
         </fieldset>
 

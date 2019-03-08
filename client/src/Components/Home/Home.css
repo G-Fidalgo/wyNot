@@ -1,0 +1,9 @@
+@font-face {
+  src: url(./fonts/Montserrat-Regular.ttf);
+  font-family: monserrat;
+
+}
+
+.app {
+  font-family: monserrat;
+}

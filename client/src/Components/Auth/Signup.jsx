@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import AuthService from './Auth-Service';
 import {Link} from 'react-router-dom'
 
+import './Signup.css'
+
 class Signup extends Component {
   constructor(props){
     super(props);
@@ -32,9 +34,12 @@ class Signup extends Component {
   
   render(){
     return(
-      <div>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
+      <div className='container2'>
+        <div className='container2'>
+          <h2>Are your ready for the Sign Up? </h2>
+          <p>We just need your email to keep in touch with you</p>
+        <form onSubmit={this.handleFormSubmit} className='container2'>
+          <label>Email:</label>
           <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
           
           <label>Password:</label>
@@ -46,6 +51,9 @@ class Signup extends Component {
         <p>Already have account? 
             <Link to={"/"}> Login</Link>
         </p>
+
+        </div>
+        
   
       </div>
     )
