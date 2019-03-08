@@ -48,7 +48,7 @@ class Home extends Component {
             </h1>
             <div>
               {" "}
-              <Link to="/packs">Packs</Link>
+              <Link to="/userPacks">Packs</Link>
             </div>
             <div>
               <Link to="/lab">Lab</Link>

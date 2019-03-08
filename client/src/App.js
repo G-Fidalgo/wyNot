@@ -99,6 +99,7 @@ class App extends Component {
           <Route exact path='/eventsonlineuser' component={EventOnlineUser} />
           <Route exact path="/userpacks" component={UserPacks} />
           <Route exact path="/Packs" component={PackCreator} />
+          <Route exact path='/userPacks' component={UserPacks} />∫
         </Switch>
       </div>
     );
