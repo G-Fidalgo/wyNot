@@ -7,9 +7,11 @@ class EventList extends Component {
         super(props);
         this.state = {name: '', description: '', schedule: undefined, link: '', address: '', price: undefined, events:[]};
         this.service = new EventServiceP();
+        this.getEvents();
+      }
 
-
-        this.service.eventListed()
+      getEvents = () => {
+      this.service.eventListed()
       .then((data) => {
         this.setState({
             events: data,
@@ -23,8 +25,7 @@ class EventList extends Component {
           redirect: false
         });
       })
-      }
-
+    }
 
       deleteEvent = (id) => {
         this.service.eventDelete(id)
@@ -32,7 +33,7 @@ class EventList extends Component {
       }
 
       render() {
-        console.log(this.state)
+        this.getEvents();
         return (
         <div>
     <h2>EVENTOS CREADOS</h2>

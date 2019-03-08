@@ -20,6 +20,8 @@ class EventPresBrand extends Component {
     const address = this.state.address;
     const price = this.state.price;
 
+
+
     this.service.eventCreate(name, description, schedule, link, address, price)
       .then((data) => {
         this.setState({...this.state,

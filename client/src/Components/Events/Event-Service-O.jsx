@@ -17,6 +17,11 @@ class EventServiceO {
     return this.service.post('/delete/:id', {id})
     .then(response => response.data)
   }
+
+  eventListed = () => {
+    return this.service.get('/')
+    .then(response => response.data)
+  }
 }
 
 export default EventServiceO;
