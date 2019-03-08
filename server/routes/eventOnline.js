@@ -50,7 +50,7 @@ router.get('/', function (req, res, next) {
 
   router.delete('/delete/:id', isAdmin, function (req, res, next) {
     const id = req.params.id
-    EventOnline.findOneAndDelete(id)
+    EventOnline.findByIdAndRemove(id)
      .then(function (event) {
       res.json({eventdeleted: true, data: event})
     })

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EventServiceO from './Event-Service-P';
+import EventServiceO from './Event-Service-O';
 import { Redirect, Link } from 'react-router-dom';
 import EventListOnline from './EventListOnline';
 
@@ -55,11 +55,11 @@ class EventOnlineBrand extends Component {
       <fieldset>
       <legend>Información del evento</legend>
       <label>Nombre del evento</label>
-      <input name='name' type='text' tabindex='1'/>
+      <input name='name' type='text' tabIndex='1'/>
       <label>Descripción</label>
-       <input name='description' type='text' tabindex='2'/>
+       <input name='description' type='text' tabIndex='2'/>
        <label>Link</label> 
-       <input name='link' type='text' tabindex='2'/>
+       <input name='link' type='text' tabIndex='2'/>
       </fieldset>
         <input type="submit" value="Created event" />
       </form>

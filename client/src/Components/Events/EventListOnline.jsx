@@ -7,37 +7,35 @@ class EventListOnline extends Component {
         super(props);
         this.state = {name: '', description: '', link: '', events:[]};
         this.service = new EventServiceO();
-
-
-        this.service.eventListed()
+        this.getEvents();
+      }
+getEvents = () => {
+      this.service.eventListed()
       .then((data) => {
         this.setState({
             events: data,
             error: false,
-          redirect: true
+        
         });
       })
       .catch(error => {
-        this.setState({
-          error: true,
-          redirect: false
-        });
+        
+        console.log(error)
       })
-      }
-
-      deleteEvent = (id) => {
-        this.service.eventDelete(id)
-        .then(data => this.setState({...this.state, events: data}))
-      }
+    }
+      // deleteEvent = (id) => {
+      //   this.service.eventDelete(id)
+      //   .then(data => this.setState({...this.state, events: data}))
+      // }
 
       render() {
-        console.log(this.state)
+        this.getEvents();
         return (
         <div>
     <h2>EVENTOS CREADOS</h2>
     {
-        this.state.events.map(e => 
-            <div>
+        this.state.events.map((e, i) => 
+            <div key={i}>
         <p>{e.name}</p>
         <p>{e.description}</p>
         <p>{e.link}</p>

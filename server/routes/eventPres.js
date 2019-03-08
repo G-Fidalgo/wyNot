@@ -60,7 +60,7 @@ router.get('/', function (req, res, next) {
   router.post('/delete/:id', function (req, res, next) {
     const id = req.params.id
     console.log(id)
-    EventPres.findOneAndDelete(id)
+    EventPres.findByIdAndRemove(id)
      .then(function (event) {
       res.json({eventdeleted: true, data: event})
     })
